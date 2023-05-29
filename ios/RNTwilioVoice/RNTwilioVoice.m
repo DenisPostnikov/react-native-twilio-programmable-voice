@@ -467,6 +467,9 @@ withCompletionHandler:(void (^)(void))completion {
     if (callInvite.to) {
         [params setObject:callInvite.to forKey:@"call_to"];
     }
+    if (callInvite.customParameters) {
+        [params setObject:callInvite.customParameters forKey:@"custom_parameters"];
+    }
     [self sendEventWithName:@"deviceDidReceiveIncoming" body:params];
 }
 
